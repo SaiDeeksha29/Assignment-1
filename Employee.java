@@ -40,12 +40,11 @@ public class Employee {
         }
         if(MAX_WORKING_HOUR/empHour<MAX_WORKING_DAYS && empHour!=0) {
         	empWage=MAX_WORKING_HOUR*EMP_WAGE_PER_HOUR;
-        	System.out.println("Employee Wage for 100hrs : "+empWage);
         }
         else if(MAX_WORKING_HOUR/empHour>MAX_WORKING_DAYS && empHour!=0) {
         	empWage=4*EMP_WAGE_PER_HOUR*MAX_WORKING_DAYS;
-        	System.out.println("Employee Wage for 20days : "+empWage);
         }
+        System.out.println("Employee Wage : "+empWage);
 	}
 
 }
