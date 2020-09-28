@@ -19,13 +19,13 @@ public class EmpWageBuilder {
 		companyEmpWageArrays = new CompanyEmpWage[5];
 	}
 
-	private void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
+	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		companyEmpWageArrays[numOfCompanies] = new CompanyEmpWage(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
 				companyName);
 		numOfCompanies++;
 	}
 
-	private void ComputeEmpWage() {
+	public void ComputeEmpWage() {
 		for (int i = 0; i < numOfCompanies; i++) {
 			int totalEmpWage = this.ComputeEmpWage(companyEmpWageArrays[i]);
 			System.out.println((companyEmpWageArrays[i].companyName) + " has total wage : " + totalEmpWage);
