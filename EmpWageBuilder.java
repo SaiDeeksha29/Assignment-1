@@ -30,6 +30,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
 		for (CompanyEmpWage company: companyEmpWageList) {
 			ComputeEmpWage(company);
 			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getTotalEmpWage());
+			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getDailyEmpWage());
 		}
 	}
 
@@ -62,6 +63,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
 		}
 		// daily wage calculation
 		empWage = empHours * companyEmpWage.empWagePerHour;
+		companyEmpWage.setDailyEmpWage(empWage);
 		// Tabular display of employee details
 		System.out.println("company\t\tDay\tHours Worked\tTotal Wage");
 		while ((hoursWorked + empHours) <= companyEmpWage.workHoursPerMonth
