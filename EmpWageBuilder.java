@@ -7,7 +7,7 @@ package employee;
  * @author saideeksha
  *
  */
-public class EmpWageBuilder {
+public class EmpWageBuilder implements IComputeEmpWage {
 	// static variables
 	public static final int IS_PART_TIME = 2;
 	public static final int IS_FULL_TIME = 1;
