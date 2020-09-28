@@ -19,8 +19,7 @@ public class EmpWageBuilder {
 		companyEmpWageArrays = new CompanyEmpWage[5];
 	}
 
-	private void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth,
-			String companyName) {
+	private void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		companyEmpWageArrays[numOfCompanies] = new CompanyEmpWage(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
 				companyName);
 		numOfCompanies++;
@@ -33,40 +32,55 @@ public class EmpWageBuilder {
 		}
 	}
 
-	public int ComputeEmpWage(CompanyEmpWage companyEmpWage) {
-		// variables
-		int dayCount = 0;
-		int totalEmpHours = 0;
-		int empHour = 0;
-		// Computation
-		while (empHour <= companyEmpWage.workHoursPerMonth && dayCount < companyEmpWage.workDaysPerMonth) {
-			dayCount++;
-
-			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
-
-			switch (empCheck) {
-			case 1:
-				empCheck = IS_FULL_TIME;
-				System.out.println("Employee Present - FULL TIME");
-				empHour = 8;
-				break;
-			case 2:
-				empCheck = IS_PART_TIME;
-				System.out.println("Employee Present - PART TIME");
-				empHour = 4;
-				break;
-			default:
-				System.out.println("Employee is Absent");
-				empHour = 0;
-				break;
-			}
-			totalEmpHours += empHour;
-
-			// Tabular Display of Employee Details for Maximum Monthly Hours or Days
-			System.out.println("Day\t" + dayCount + "Hours Worked\t" + empHour);
-		}
-		return totalEmpHours * companyEmpWage.empWagePerHour;
+	private int ComputeEmpWage(CompanyEmpWage companyEmpWage) {
+		// TODO Auto-generated method stub
+		int empWage=0;
+    	int hoursWorked=0;
+    	int empHours=0;
+    	int dayCount=0;
+	
+   //computation
+	int empCheck = (int) (Math.floor(Math.random()*10) % 3);
+	System.out.println("empCheck :"+empCheck);
+    
+	switch(empCheck)
+	{
+	   case 1:
+	       empCheck = IS_FULL_TIME;
+		   System.out.println("Employee is Present & Full Time");
+		   empHours=8;
+		   break;
+		   
+	   case 2:
+		   empCheck = IS_PART_TIME;
+		   System.out.println("Employee is Present & Part Time");
+		   empHours=4;
+		   break;
+		   
+	   default:
+		   System.out.println("Employee is Absent");
+		   break;
 	}
+	//daily wage calculation
+	empWage = empHours * companyEmpWage.empWagePerHour;
+	//Tabular display of employee details
+	System.out.println("company\t\tDay\tHours Worked\tTotal Wage");
+	while((hoursWorked + empHours) <= companyEmpWage.workHoursPerMonth && dayCount < companyEmpWage.workDaysPerMonth)
+	{
+		dayCount++;
+		hoursWorked += empHours;
+		companyEmpWage.totalEmpWage += empWage;
+		System.out.println(" " +companyEmpWage.companyName+ " \t" + dayCount + " \t" + hoursWorked + " \t\t" + companyEmpWage.totalEmpWage);
+	}
+	if(hoursWorked < companyEmpWage.workHoursPerMonth && dayCount < companyEmpWage.workDaysPerMonth)
+	{
+		dayCount++;
+		hoursWorked += (companyEmpWage.workHoursPerMonth - hoursWorked);
+		companyEmpWage.totalEmpWage += (companyEmpWage.workHoursPerMonth - hoursWorked) * companyEmpWage.empWagePerHour ;
+		System.out.println(" " +companyEmpWage.companyName+ " \t" + dayCount + " \t" + hoursWorked + " \t\t" + companyEmpWage.totalEmpWage);
+	}
+	return companyEmpWage.totalEmpWage;
+}
 
 	/**
 	 * @param args
