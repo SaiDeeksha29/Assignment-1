@@ -26,27 +26,6 @@ public class Company {
 
 		// Computation
 		int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
-		int company = (int) (Math.floor(Math.random() * 10) % 3);
-
-		switch (company) {
-		case 0:
-			System.out.println("Company A");
-			empWagePerHour = 20;
-			workDaysPerMonth = 15;
-			workHoursPerMonth = 100;
-			break;
-		case 1:
-			System.out.println("Company B");
-			empWagePerHour = 25;
-			workDaysPerMonth = 20;
-			workHoursPerMonth = 90;
-			break;
-		case 2:
-			System.out.println("Company C");
-			empWagePerHour = 15;
-			workDaysPerMonth = 25;
-			workHoursPerMonth = 120;
-		}
 
 		switch (empCheck) {
 		case 1:
@@ -60,6 +39,7 @@ public class Company {
 			empHour = 4;
 			break;
 		default:
+			System.out.println("Employee is Absent");
 			break;
 		}
 
@@ -85,11 +65,6 @@ public class Company {
 			System.out.println(" " + dayCount + "  \t" + hoursWorked + "  \t\t" + totalWage);
 		}
 		return totalWage;
-	}
-
-	public interface CalculateWage {
-		public abstract int EmpWage();
-
 	}
 
 }
