@@ -17,38 +17,21 @@ public class Employee {
 
 		// Welcome Message
 		System.out.println("Welcome to Employee Wage Computation");
+
+		Company A = new Company(20,15,100);
+		System.out.println("Company A");
+		int Total = A.EmpWage();
+		Company B = new Company(25,20,90);
+		System.out.println("Company B");
+		int Total1 = B.EmpWage();
+		Company C = new Company(15,25,120);
+		System.out.println("Company C");
+		int Total2 = C.EmpWage();
 		
-		int empWagePerHour=0;
-		int workDaysPerMonth=0;
-		int workHoursPerMonth=0;
-		
-		int company = (int) (Math.floor(Math.random() * 10) % 3);
-
-		switch (company) {
-		case 0:
-			System.out.println("Company A");
-			empWagePerHour = 20;
-			workDaysPerMonth = 15;
-			workHoursPerMonth = 100;
-			break;
-		case 1:
-			System.out.println("Company B");
-			empWagePerHour = 25;
-			workDaysPerMonth = 20;
-			workHoursPerMonth = 90;
-			break;
-		case 2:
-			System.out.println("Company C");
-			empWagePerHour = 15;
-			workDaysPerMonth = 25;
-			workHoursPerMonth = 120;
-		}
-
-		Company obj = new Company(empWagePerHour,workDaysPerMonth,workHoursPerMonth);
-		int Total = obj.EmpWage();
-
 		// Display of Employee Total Wage
-		System.out.println("The Employee Total Wage for Maximum Hours or Days : " + Total);
-
+		System.out.println("The Employee Total Wage for Maximum Hours or Days for Company A: " + Total);
+		System.out.println("The Employee Total Wage for Maximum Hours or Days for Company B: " + Total1);
+		System.out.println("The Employee Total Wage for Maximum Hours or Days for Company C: " + Total2);
+		
 	}
 }
