@@ -16,7 +16,27 @@ public class CompanyEmpWage {
 		this.workHoursPerMonth = workHoursPerMonth;
 	}
 
-	public void setTotalWage(int totalEmpWage) {
+	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
+	}
+
+	public int getEmpWagePerHour() {
+		return empWagePerHour;
+	}
+
+	public int getWorkDaysPerMonth() {
+		return workDaysPerMonth;
+	}
+
+	public int getWorkHoursPerMonth() {
+		return workHoursPerMonth;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public int getTotalEmpWage() {
+		return totalEmpWage;
 	}
 }
