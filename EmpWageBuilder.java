@@ -4,6 +4,7 @@
 package employee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author saideeksha
@@ -15,15 +16,18 @@ public class EmpWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 1;
 
 	private ArrayList<CompanyEmpWage> companyEmpWageList;
+	private HashMap<String,CompanyEmpWage> companyEmpWageMap;
 
 	public EmpWageBuilder() {
 		companyEmpWageList = new ArrayList<>();
+		companyEmpWageMap=new HashMap<>();
 	}
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		CompanyEmpWage companyEmpWage = new CompanyEmpWage(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
 				companyName);
 		companyEmpWageList.add(companyEmpWage);
+		companyEmpWageMap.put(companyName, companyEmpWage);
 	}
 
 	public void ComputeEmpWage() {
@@ -32,6 +36,10 @@ public class EmpWageBuilder implements IComputeEmpWage {
 			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getTotalEmpWage());
 			System.out.println("Employee wage of the "+company.getCompanyName()+"is : "+company.getDailyEmpWage());
 		}
+	}
+	
+	public int getTotalEmpWage(String company) {
+		return companyEmpWageMap.get(company).totalEmpWage;
 	}
 
 	private int ComputeEmpWage(CompanyEmpWage companyEmpWage) {
